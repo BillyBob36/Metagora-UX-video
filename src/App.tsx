@@ -5,7 +5,7 @@ import { ScenarioEditor } from '@/pages/ScenarioEditor';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Metagora-UX-video">
       <div className="min-h-screen bg-gray-50">
         <Routes>
           <Route path="/" element={<Dashboard />} />
