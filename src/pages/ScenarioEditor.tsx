@@ -313,7 +313,6 @@ export function ScenarioEditor() {
       {showSaveModal && (
         <SaveScenarioModal
           scenarioName={scenario.name}
-          hasChanges={hasParamChanges}
           onReplace={handleReplaceSave}
           onCreateCopy={handleCreateCopy}
           onCancel={() => setShowSaveModal(false)}
