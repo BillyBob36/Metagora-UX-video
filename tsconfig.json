@@ -21,6 +21,6 @@
     }
   },
   "include": ["src"],
-  "exclude": ["src/pages/TrainingContent.tsx", "src/services/mockApi.ts"],
+  "exclude": ["src/pages/TrainingContent.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

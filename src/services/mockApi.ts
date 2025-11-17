@@ -8,51 +8,138 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const mockProducts: Product[] = [
   {
     id: '1',
-    name: 'iPhone 15 Pro',
+    details: {
+      name: 'iPhone 15 Pro',
+      category: 'Smartphone',
+      shade: 'Titane Naturel',
+      shadeDescription: 'Finition premium en titane',
+      finish: 'Matte',
+      finishDescription: 'Surface mate anti-traces',
+      benefit: 'Performance ultime',
+      benefitTarget: 'Professionnels et créatifs',
+      texture: 'Titane brossé',
+      application: 'Prise en main premium',
+      duration: '24 mois',
+      resistance: 'IP68, Ceramic Shield'
+    },
     image: 'https://images.unsplash.com/photo-1696446702183-cbd0174e00e8?w=400',
-    tags: ['Smartphone', 'Premium', 'Apple'],
-    date: '2024-09-15',
-    description: 'Le dernier smartphone Apple avec puce A17 Pro',
+    createdAt: '2024-09-15',
+    updatedAt: '2024-09-15',
   },
   {
     id: '2',
-    name: 'Samsung Galaxy S24',
+    details: {
+      name: 'Samsung Galaxy S24',
+      category: 'Smartphone',
+      shade: 'Phantom Black',
+      shadeDescription: 'Noir profond élégant',
+      finish: 'Glossy',
+      finishDescription: 'Finition brillante',
+      benefit: 'IA intégrée',
+      benefitTarget: 'Utilisateurs tech',
+      texture: 'Verre premium',
+      application: 'Ergonomique',
+      duration: '24 mois',
+      resistance: 'IP68'
+    },
     image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400',
-    tags: ['Smartphone', 'Android', 'Samsung'],
-    date: '2024-08-20',
-    description: 'Flagship Samsung avec IA intégrée',
+    createdAt: '2024-08-20',
+    updatedAt: '2024-08-20',
   },
   {
     id: '3',
-    name: 'AirPods Pro 2',
+    details: {
+      name: 'AirPods Pro 2',
+      category: 'Audio',
+      shade: 'Blanc',
+      shadeDescription: 'Blanc iconique Apple',
+      finish: 'Glossy',
+      finishDescription: 'Finition brillante',
+      benefit: 'Réduction de bruit active',
+      benefitTarget: 'Audiophiles',
+      texture: 'Plastique premium',
+      application: 'Confortable',
+      duration: '6 heures',
+      resistance: 'IPX4'
+    },
     image: 'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400',
-    tags: ['Audio', 'Sans-fil', 'Apple'],
-    date: '2024-07-10',
-    description: 'Écouteurs avec réduction de bruit active',
+    createdAt: '2024-07-10',
+    updatedAt: '2024-07-10',
   },
 ];
 
 export const mockPersonas: Persona[] = [
   {
     id: '1',
-    name: 'Client Tech-Savvy',
-    description: 'Connaît bien la technologie, cherche les dernières innovations',
-    level: 'senior',
+    details: {
+      firstName: 'Marc',
+      age: 35,
+      profession: 'Développeur',
+      lifestyle: 'Tech-savvy, early adopter',
+      values: 'Innovation, performance',
+      tone: 'Direct et technique',
+      language: 'Jargon tech',
+      emotion: 'Enthousiaste',
+      salesReaction: 'Apprécie l\'expertise',
+      comfortFactors: 'Données techniques',
+      propositionPreference: 'Toutes les options',
+      buyingMotivation: 'Dernières innovations',
+      screeneProfile: 'Nouveauté',
+      screeneMotivation: 'Être à la pointe',
+      buyingHabits: 'High-tech premium',
+      buyingFrequency: 'Régulière',
+      buyingLocation: 'En ligne et boutiques spécialisées'
+    },
     createdAt: '2024-01-15',
+    updatedAt: '2024-01-15',
   },
   {
     id: '2',
-    name: 'Premier Acheteur',
-    description: 'Première expérience d\'achat, besoin d\'accompagnement',
-    level: 'junior',
+    details: {
+      firstName: 'Sophie',
+      age: 25,
+      profession: 'Étudiante',
+      lifestyle: 'Découverte, prudente',
+      values: 'Qualité-prix',
+      tone: 'Hésitant',
+      language: 'Simple',
+      emotion: 'Curieuse mais prudente',
+      salesReaction: 'Besoin de réassurance',
+      comfortFactors: 'Accompagnement',
+      propositionPreference: 'Peu de choix ciblés',
+      buyingMotivation: 'Premier achat réfléchi',
+      screeneProfile: 'Sécurité',
+      screeneMotivation: 'Faire le bon choix',
+      buyingHabits: 'Basiques',
+      buyingFrequency: 'Occasionnelle',
+      buyingLocation: 'Boutiques physiques'
+    },
     createdAt: '2024-01-20',
+    updatedAt: '2024-01-20',
   },
   {
     id: '3',
-    name: 'Client Professionnel',
-    description: 'Recherche efficacité et productivité',
-    level: 'intermediate',
+    details: {
+      firstName: 'Laurent',
+      age: 42,
+      profession: 'Manager',
+      lifestyle: 'Professionnel, efficace',
+      values: 'Productivité',
+      tone: 'Pragmatique',
+      language: 'Business',
+      emotion: 'Orienté résultats',
+      salesReaction: 'Apprécie l\'efficacité',
+      comfortFactors: 'ROI et bénéfices',
+      propositionPreference: 'Solutions ciblées',
+      buyingMotivation: 'Efficacité professionnelle',
+      screeneProfile: 'Économie',
+      screeneMotivation: 'Optimiser le temps',
+      buyingHabits: 'Outils professionnels',
+      buyingFrequency: 'Régulière',
+      buyingLocation: 'En ligne pro'
+    },
     createdAt: '2024-02-01',
+    updatedAt: '2024-02-01',
   },
 ];
 
@@ -62,26 +149,57 @@ export async function importProduct(file: File, type: FileType): Promise<Product
   
   const product: Product = {
     id: generateId(),
-    name: file.name.replace(/\.(csv|pdf|png|jpg|jpeg)$/i, ''),
+    details: {
+      name: file.name.replace(/\.(csv|pdf|png|jpg|jpeg)$/i, ''),
+      category: 'Produit importé',
+      shade: 'Standard',
+      shadeDescription: 'Importé depuis fichier',
+      finish: 'Standard',
+      finishDescription: 'À définir',
+      benefit: 'À définir',
+      benefitTarget: 'À définir',
+      texture: 'À définir',
+      application: 'À définir',
+      duration: 'À définir',
+      resistance: 'À définir'
+    },
     image: type === 'image' 
       ? URL.createObjectURL(file)
       : 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400',
-    tags: ['Nouveau', 'Import'],
-    date: new Date().toISOString(),
-    description: `Produit importé depuis ${type.toUpperCase()}`,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   };
   
   return product;
 }
 
 // Create persona
-export async function createPersona(data: { name: string; description: string; level: 'junior' | 'intermediate' | 'senior' }): Promise<Persona> {
+export async function createPersona(data: { firstName: string; age: number; profession: string }): Promise<Persona> {
   await delay(1000);
   
   const persona: Persona = {
     id: generateId(),
-    ...data,
+    details: {
+      firstName: data.firstName,
+      age: data.age,
+      profession: data.profession,
+      lifestyle: 'À définir',
+      values: 'À définir',
+      tone: 'À définir',
+      language: 'À définir',
+      emotion: 'À définir',
+      salesReaction: 'À définir',
+      comfortFactors: 'À définir',
+      propositionPreference: 'À définir',
+      buyingMotivation: 'À définir',
+      screeneProfile: 'À définir',
+      screeneMotivation: 'À définir',
+      buyingHabits: 'À définir',
+      buyingFrequency: 'À définir',
+      buyingLocation: 'À définir'
+    },
     createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   };
   
   return persona;
@@ -186,9 +304,16 @@ export async function generateScenario(
   const scenario: Scenario = {
     id: generateId(),
     name: `Scénario - ${new Date().toLocaleDateString('fr-FR')}`,
-    productId,
-    personaId,
+    productIds: [productId],
+    personaIds: [personaId],
+    randomizePersona: false,
     steps,
+    availableLanguages: [{
+      code: 'fr',
+      name: 'Français',
+      flagUrl: 'https://flagcdn.com/w40/fr.png'
+    }],
+    currentLanguage: 'fr',
     difficulty: 3,
     status: 'draft',
     createdAt: new Date().toISOString(),
@@ -199,7 +324,7 @@ export async function generateScenario(
 }
 
 // Get AI suggestions for scenario
-export async function getAISuggestions(scenarioId: string): Promise<string[]> {
+export async function getAISuggestions(_scenarioId: string): Promise<string[]> {
   await delay(500);
   
   return [
