@@ -48,16 +48,18 @@ Réponds UNIQUEMENT avec un objet JSON valide contenant ces champs :
 
 Sois créatif et précis. Base-toi sur l'URL et tes connaissances des produits similaires.`;
 
-    // Utiliser le proxy Vite local pour éviter les problèmes CORS
-    const openaiProxyUrl = '/api/openai/v1/chat/completions';
+    // Utiliser le proxy Vite en dev, API directe en production
+    const isDev = import.meta.env.DEV;
+    const openaiUrl = isDev 
+      ? '/api/openai/v1/chat/completions'
+      : 'https://api.openai.com/v1/chat/completions';
     
-    const response = await fetch(openaiProxyUrl, {
+    const response = await fetch(openaiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${OPENAI_API_KEY}`,
       },
-      mode: 'cors',
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         messages: [
@@ -144,7 +146,12 @@ Réponds UNIQUEMENT avec un objet JSON valide contenant ces champs :
 
 Extrait les vraies informations du document. Sois précis et fidèle au contenu.`;
 
-    const response = await fetch('/api/openai/v1/chat/completions', {
+    const isDev = import.meta.env.DEV;
+    const openaiUrl = isDev 
+      ? '/api/openai/v1/chat/completions'
+      : 'https://api.openai.com/v1/chat/completions';
+    
+    const response = await fetch(openaiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -234,7 +241,12 @@ Réponds UNIQUEMENT avec un objet JSON valide contenant ces champs :
 
 Crée un profil cohérent, réaliste et détaillé.`;
 
-    const response = await fetch('/api/openai/v1/chat/completions', {
+    const isDev = import.meta.env.DEV;
+    const openaiUrl = isDev 
+      ? '/api/openai/v1/chat/completions'
+      : 'https://api.openai.com/v1/chat/completions';
+    
+    const response = await fetch(openaiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -333,7 +345,12 @@ Réponds UNIQUEMENT avec un objet JSON valide contenant ces champs :
 
 Extrait les vraies informations du document. Sois précis et fidèle au contenu.`;
 
-    const response = await fetch('/api/openai/v1/chat/completions', {
+    const isDev = import.meta.env.DEV;
+    const openaiUrl = isDev 
+      ? '/api/openai/v1/chat/completions'
+      : 'https://api.openai.com/v1/chat/completions';
+    
+    const response = await fetch(openaiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -431,7 +448,12 @@ ${selectedPersonas.map(p => JSON.stringify(p.details, null, 2)).join('\n\n')}
   ]`;
 
   try {
-    const response = await fetch('/api/openai/v1/chat/completions', {
+    const isDev = import.meta.env.DEV;
+    const openaiUrl = isDev 
+      ? '/api/openai/v1/chat/completions'
+      : 'https://api.openai.com/v1/chat/completions';
+    
+    const response = await fetch(openaiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -517,7 +539,12 @@ Réponds UNIQUEMENT avec un tableau JSON d'étapes traduites, sans texte supplé
 ]`;
 
   try {
-    const response = await fetch('/api/openai/v1/chat/completions', {
+    const isDev = import.meta.env.DEV;
+    const openaiUrl = isDev 
+      ? '/api/openai/v1/chat/completions'
+      : 'https://api.openai.com/v1/chat/completions';
+    
+    const response = await fetch(openaiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

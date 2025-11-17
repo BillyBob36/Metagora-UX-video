@@ -43,7 +43,12 @@ Réponds UNIQUEMENT avec un objet JSON valide :
   "tags": ["tag1", "tag2", "tag3"]
 }`;
 
-    const response = await fetch('/api/openai/v1/chat/completions', {
+    const isDev = import.meta.env.DEV;
+    const openaiUrl = isDev 
+      ? '/api/openai/v1/chat/completions'
+      : 'https://api.openai.com/v1/chat/completions';
+    
+    const response = await fetch(openaiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
