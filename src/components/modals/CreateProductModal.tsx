@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/Card';
 import { X, Upload, FileText, Link as LinkIcon } from 'lucide-react';
 import { Product, ProductDetails } from '@/types';
 import { extractProductFromDocuments, extractProductFromUrl } from '@/services/openai';
+import { getAssetUrl } from '@/lib/assets';
 
 interface CreateProductModalProps {
   product?: Product;
@@ -23,7 +24,7 @@ export function CreateProductModal({ product, onClose }: CreateProductModalProps
   const [isDragOver, setIsDragOver] = useState(false);
   const [productUrl, setProductUrl] = useState('');
   const [productImage, setProductImage] = useState<string | undefined>(
-    product?.image || '/images/lipstick.png'
+    product?.image || getAssetUrl('/images/lipstick.png')
   );
   const [saveDocument, setSaveDocument] = useState(false);
   const [sourceUrl, setSourceUrl] = useState<string | undefined>(product?.sourceUrl);

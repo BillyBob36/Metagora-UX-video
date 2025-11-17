@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/Input';
 import { X, Package, Users, Shuffle } from 'lucide-react';
 import { generateScenarioSteps } from '@/services/openai';
 import { Scenario } from '@/types';
+import { getAssetUrl } from '@/lib/assets';
 
 interface CreateScenarioModalProps {
   onClose: () => void;
@@ -305,7 +306,7 @@ export function CreateScenarioModal({ onClose }: CreateScenarioModalProps) {
                           {persona.avatar ? (
                             <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-200 flex-shrink-0">
                               <img 
-                                src={persona.avatar} 
+                                src={getAssetUrl(persona.avatar)} 
                                 alt={persona.details.firstName}
                                 className="w-full h-full object-cover"
                               />

@@ -3,6 +3,7 @@ import { ScenariosTab } from '@/components/tabs/ScenariosTab';
 import { ProductsTab } from '@/components/tabs/ProductsTab';
 import { PersonasTab } from '@/components/tabs/PersonasTab';
 import { Layers, Package, Users } from 'lucide-react';
+import { getAssetUrl } from '@/lib/assets';
 
 type TabType = 'scenarios' | 'products' | 'personas';
 
@@ -34,7 +35,7 @@ export function Dashboard() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center gap-3">
             <img 
-              src="/images/Logo-Metagora-Black.png" 
+              src={getAssetUrl('/images/Logo-Metagora-Black.png')}
               alt="Metagora" 
               className="h-8 w-auto"
             />

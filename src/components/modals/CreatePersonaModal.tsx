@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/Card';
 import { X, Upload, FileText, Link as LinkIcon } from 'lucide-react';
 import { Persona, PersonaDetails } from '@/types';
 import { extractPersonaFromDocuments, extractPersonaFromUrl } from '@/services/openai';
+import { getAssetUrl } from '@/lib/assets';
 
 interface CreatePersonaModalProps {
   persona?: Persona;
@@ -23,7 +24,7 @@ export function CreatePersonaModal({ persona, onClose }: CreatePersonaModalProps
   const [isDragOver, setIsDragOver] = useState(false);
   const [personaUrl, setPersonaUrl] = useState('');
   const [personaAvatar, setPersonaAvatar] = useState<string | undefined>(
-    persona?.avatar || '/images/personnats/avatar.png'
+    persona?.avatar || getAssetUrl('/images/personnats/avatar.png')
   );
   const [saveDocument, setSaveDocument] = useState(false);
   const [sourceUrl, setSourceUrl] = useState<string | undefined>(persona?.sourceUrl);

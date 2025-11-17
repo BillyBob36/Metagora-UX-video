@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { Plus, Edit, Trash2, Users } from 'lucide-react';
 import { CreatePersonaModal } from '@/components/modals/CreatePersonaModal';
 import { Persona } from '@/types';
+import { getAssetUrl } from '@/lib/assets';
 
 export function PersonasTab() {
   const personas = useStore((state) => state.personas);
@@ -85,7 +86,7 @@ export function PersonasTab() {
                   {persona.avatar ? (
                     <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-200">
                       <img 
-                        src={persona.avatar} 
+                        src={getAssetUrl(persona.avatar)} 
                         alt={persona.details.firstName}
                         className="w-full h-full object-cover"
                       />
