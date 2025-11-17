@@ -3,7 +3,6 @@ import { AlertCircle, Copy, Save } from 'lucide-react';
 
 interface SaveScenarioModalProps {
   scenarioName: string;
-  hasChanges: boolean;
   onReplace: () => void;
   onCreateCopy: () => void;
   onCancel: () => void;
@@ -11,7 +10,6 @@ interface SaveScenarioModalProps {
 
 export function SaveScenarioModal({
   scenarioName,
-  hasChanges,
   onReplace,
   onCreateCopy,
   onCancel,

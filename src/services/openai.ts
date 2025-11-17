@@ -485,7 +485,7 @@ ${selectedPersonas.map(p => JSON.stringify(p.details, null, 2)).join('\n\n')}
 
 export async function translateScenarioSteps(
   steps: ScenarioStep[],
-  targetLanguage: string,
+  _targetLanguage: string,
   languageName: string
 ): Promise<ScenarioStep[]> {
   const prompt = `Tu es un expert en traduction professionnelle.
